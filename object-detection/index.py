@@ -2,14 +2,14 @@ import cv2
 
 #PRE-TRAINED MODELS
 #configuration and weight of the model
-net = cv2.dnn.readNet(r"object-detection/dnn_model-220107-114215/dnn_model/yolov4-tiny.weights",r"object-detection/dnn_model-220107-114215/dnn_model/yolov4-tiny.cfg")
+net = cv2.dnn.readNet(r"/home/quent/python-codes/object-detection/dnn_model-220107-114215/dnn_model/yolov4-tiny.weights",r"/home/quent/python-codes/object-detection/dnn_model-220107-114215/dnn_model/yolov4-tiny.cfg")
 model = cv2.dnn_DetectionModel(net)
 #size is adjusted cause high pixaled image is harder to process.size must adjusted when good detection and speed are maximum(they are inversly propotional)
 model.setInputParams(size=(320,320), scale=1/255)
 
 #load class list
 classes=[]
-t = open(r"object-detection/dnn_model-220107-114215/dnn_model/classes.txt") 
+t = open(r"/home/quent/python-codes/object-detection/dnn_model-220107-114215/dnn_model/classes.txt") 
 for i in t.readlines():
     c = i.strip()
     classes.append(c)
